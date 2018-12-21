@@ -29,7 +29,7 @@ class SFTPArtifactRepository(ArtifactRepository):
                 self.config['host'] = 'localhost'
 
             ssh_config = paramiko.SSHConfig()
-            user_config_file = os.path.expanduser("~/.ssh/config")
+            user_config_file = os.path.expanduser(os.path.join("~", ".ssh", "config"))
             if os.path.exists(user_config_file):
                 with open(user_config_file) as f:
                     ssh_config.parse(f)
